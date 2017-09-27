@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 22, 2017 at 04:06 PM
+-- Generation Time: Sep 27, 2017 at 01:57 PM
 -- Server version: 10.1.9-MariaDB-log
 -- PHP Version: 7.0.10
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `carts` (
   `id` int(10) UNSIGNED NOT NULL,
-  `product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` date NOT NULL,
+  `product` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -39,12 +39,12 @@ CREATE TABLE `carts` (
 -- Dumping data for table `carts`
 --
 
-INSERT INTO `carts` (`id`, `product`, `user`, `date`, `created_at`, `updated_at`) VALUES
-(1, 'Miss Aliya Gislason', 'Ms. Bria Brakus DDS', '1993-07-27', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(2, 'Joanie Brown', 'Mr. Oral Reynolds', '1976-08-17', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(3, 'Wilton Runte', 'Garret Skiles', '2000-05-26', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(4, 'Emie Denesik', 'Mrs. Jada Olson I', '1992-07-20', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(5, 'Prof. Kenyon Luettgen I', 'Mr. Wilburn Barton', '1995-08-07', '2017-09-22 13:59:36', '2017-09-22 13:59:36');
+INSERT INTO `carts` (`id`, `product`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Vernice', NULL, NULL, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(2, 'Willy', NULL, NULL, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(3, 'Llewellyn', NULL, NULL, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(4, 'Jayson', NULL, NULL, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(5, 'Olen', NULL, NULL, '2017-09-27 11:55:09', '2017-09-27 11:55:09');
 
 -- --------------------------------------------------------
 
@@ -54,9 +54,10 @@ INSERT INTO `carts` (`id`, `product`, `user`, `date`, `created_at`, `updated_at`
 
 CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_id` int(10) UNSIGNED DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -65,12 +66,12 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Mr. Sammy Collier', 'Quo iure nostrum praesentium dolorem deserunt saepe saepe doloremque.', 'https://lorempixel.com/640/480/?72208', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(2, 'Alexanne Bechtelar', 'Itaque perspiciatis quaerat odit autem vero hic consequuntur.', 'https://lorempixel.com/640/480/?14418', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(3, 'Heber Dickens', 'Voluptatibus tempore quia explicabo aut esse.', 'https://lorempixel.com/640/480/?63441', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(4, 'Brennon Williamson', 'Voluptatum ducimus sit et earum sed.', 'https://lorempixel.com/640/480/?29132', '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(5, 'Salma Little V', 'Asperiores officia architecto velit magnam veritatis accusantium repellendus et.', 'https://lorempixel.com/640/480/?36693', '2017-09-22 13:59:36', '2017-09-22 13:59:36');
+INSERT INTO `categories` (`id`, `category_id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Prof. Porter Becker', 'In numquam doloremque omnis aliquid.', 'https://lorempixel.com/640/480/?77010', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(2, NULL, 'Shaun Heller', 'Dignissimos optio repellendus aspernatur illum quas nihil aliquam sed.', 'https://lorempixel.com/640/480/?47110', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(3, NULL, 'Dr. Melvin Kuhn IV', 'Mollitia id dignissimos saepe.', 'https://lorempixel.com/640/480/?83738', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(4, NULL, 'Lucio Feil', 'Nihil iste molestias omnis qui temporibus.', 'https://lorempixel.com/640/480/?33494', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(5, NULL, 'Ms. Lue Boyle', 'Assumenda nobis quidem culpa ad.', 'https://lorempixel.com/640/480/?14112', '2017-09-27 11:55:09', '2017-09-27 11:55:09');
 
 -- --------------------------------------------------------
 
@@ -80,7 +81,7 @@ INSERT INTO `categories` (`id`, `name`, `description`, `image`, `created_at`, `u
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -102,14 +103,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` int(10) UNSIGNED DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double(8,2) NOT NULL,
   `stock` int(11) NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `special` int(11) NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL,
+  `special` tinyint(4) NOT NULL,
   `product_code` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -119,12 +121,12 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `price`, `stock`, `image`, `category_id`, `status`, `special`, `product_code`, `created_at`, `updated_at`) VALUES
-(1, 'Dr. Dannie Fay Sr.', 'Error labore id quia amet.', 17.00, 74, 'https://lorempixel.com/640/480/?46008', 96, 24, 8, 98, '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(2, 'Shaun Kub', 'Amet dignissimos aspernatur nam architecto incidunt vel.', 61.00, 3, 'https://lorempixel.com/640/480/?34718', 4, 73, 84, 60, '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(3, 'Mr. Everardo Torp', 'Numquam ut voluptas molestiae sit adipisci officia nisi.', 15.00, 89, 'https://lorempixel.com/640/480/?74683', 14, 91, 87, 44, '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(4, 'Jeremy Yundt', 'Sapiente et aliquam suscipit omnis id commodi aliquid.', 21.00, 30, 'https://lorempixel.com/640/480/?10015', 76, 16, 22, 71, '2017-09-22 13:59:36', '2017-09-22 13:59:36'),
-(5, 'Mack Kirlin', 'Odit odit qui non dolores unde.', 41.00, 25, 'https://lorempixel.com/640/480/?76741', 94, 38, 75, 71, '2017-09-22 13:59:36', '2017-09-22 13:59:36');
+INSERT INTO `products` (`id`, `product_id`, `name`, `description`, `price`, `stock`, `image`, `category_id`, `status`, `special`, `product_code`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Emie', 'At pariatur voluptas et nihil velit et.', 607.00, 1, 'https://lorempixel.com/640/480/?87427', NULL, 1, 2, 1, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(2, NULL, 'Afton', 'Quod rem accusamus ut iusto ullam impedit rerum.', 628.00, 1, 'https://lorempixel.com/640/480/?15653', NULL, 1, 1, 2, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(3, NULL, 'Nelda', 'Ratione molestias ipsam corporis eum.', 452.00, 5, 'https://lorempixel.com/640/480/?79102', NULL, 2, 1, 3, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(4, NULL, 'Eda', 'Quas et dicta doloribus veritatis aut id voluptatem.', 525.00, 4, 'https://lorempixel.com/640/480/?52160', NULL, 1, 2, 3, '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(5, NULL, 'Tom', 'Et quae beatae ea adipisci.', 268.00, 5, 'https://lorempixel.com/640/480/?23437', NULL, 2, 2, 1, '2017-09-27 11:55:09', '2017-09-27 11:55:09');
 
 -- --------------------------------------------------------
 
@@ -134,10 +136,11 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `stock`, `image`, 
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `user_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `user_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_surname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -147,12 +150,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_name`, `user_surname`, `user_email`, `user_password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ms. Annabell Casper', 'Eloy Gottlieb', 'cassandra37@example.org', '$2y$10$P/.EVfklNQ150th9o7QN2OSrZxaA2w0IZu1sjlVMuOcO/X5UGpyNW', 'pKpbUOFtsz', '2017-09-22 13:59:35', '2017-09-22 13:59:35'),
-(2, 'Keaton Crooks', 'Karlee Satterfield', 'pollich.kenneth@example.org', '$2y$10$P/.EVfklNQ150th9o7QN2OSrZxaA2w0IZu1sjlVMuOcO/X5UGpyNW', '7hH1dJbwPB', '2017-09-22 13:59:35', '2017-09-22 13:59:35'),
-(3, 'Dr. Emmett Crist II', 'Alize Mayer', 'sierra22@example.net', '$2y$10$P/.EVfklNQ150th9o7QN2OSrZxaA2w0IZu1sjlVMuOcO/X5UGpyNW', 'Yn7LVSRHyv', '2017-09-22 13:59:35', '2017-09-22 13:59:35'),
-(4, 'Immanuel Streich V', 'Carlee Wintheiser Sr.', 'conrad78@example.org', '$2y$10$P/.EVfklNQ150th9o7QN2OSrZxaA2w0IZu1sjlVMuOcO/X5UGpyNW', 'FNd0d7kpcU', '2017-09-22 13:59:35', '2017-09-22 13:59:35'),
-(5, 'Alford Kulas', 'Prof. Marty Ledner PhD', 'fcronin@example.com', '$2y$10$P/.EVfklNQ150th9o7QN2OSrZxaA2w0IZu1sjlVMuOcO/X5UGpyNW', 'PosE3qBLAN', '2017-09-22 13:59:35', '2017-09-22 13:59:35');
+INSERT INTO `users` (`id`, `user_id`, `user_name`, `user_surname`, `user_email`, `user_password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Dina', 'O\'Hara', 'murazik.gustave@example.net', '$2y$10$xk5J/c5K6ApJNQuId60BVea7Aa9wLiQ2WNj/vJpUIfVUWb.ialGYu', 'JZPJj', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(2, NULL, 'Germaine', 'Nikolaus', 'gprosacco@example.net', '$2y$10$xk5J/c5K6ApJNQuId60BVea7Aa9wLiQ2WNj/vJpUIfVUWb.ialGYu', 'BiHyg', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(3, NULL, 'Matt', 'Simonis', 'blanda.jaylen@example.org', '$2y$10$xk5J/c5K6ApJNQuId60BVea7Aa9wLiQ2WNj/vJpUIfVUWb.ialGYu', 'Bi2PQ', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(4, NULL, 'Ola', 'Schimmel', 'brisa01@example.net', '$2y$10$xk5J/c5K6ApJNQuId60BVea7Aa9wLiQ2WNj/vJpUIfVUWb.ialGYu', '6F978', '2017-09-27 11:55:09', '2017-09-27 11:55:09'),
+(5, NULL, 'Archibald', 'Johnson', 'lennie90@example.org', '$2y$10$xk5J/c5K6ApJNQuId60BVea7Aa9wLiQ2WNj/vJpUIfVUWb.ialGYu', 'Bkv7o', '2017-09-27 11:55:09', '2017-09-27 11:55:09');
 
 --
 -- Indexes for dumped tables
@@ -168,7 +171,9 @@ ALTER TABLE `carts`
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categories_image_unique` (`image`),
+  ADD KEY `categories_category_id_foreign` (`category_id`);
 
 --
 -- Indexes for table `migrations`
@@ -180,13 +185,16 @@ ALTER TABLE `migrations`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `products_product_id_foreign` (`product_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_user_email_unique` (`user_email`),
+  ADD KEY `users_user_id_foreign` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -217,6 +225,28 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `categories`
+--
+ALTER TABLE `categories`
+  ADD CONSTRAINT `categories_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
